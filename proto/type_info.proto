@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+package proto;
+
+message PyType {
+  required string name = 1;
+  required float empirical_probability = 2;
+}
+
+message PyArgument {
+  required string name = 1;
+  repeated PyType types = 2;
+}
+
+message PyFunction {
+  required string name = 1;
+  required int64 lineno = 2;
+  repeated PyArgument arguments = 3;
+}
+
+message PyModule {
+  required string filename = 1;
+  repeated PyFunction functions = 2;
+}
